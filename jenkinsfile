@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    stages {
+        stage ('Stage 1'){
+            steps {
+                echo'Hello, world!'
+            }
+            post {
+                success {
+                    mail to: 'p.kupryianau@gmail.com',
+                         subject: 'Stage 1',
+                         body: 'unit test good'
+                }
+            }
+        }
+    }
+}
